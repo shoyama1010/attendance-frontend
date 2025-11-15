@@ -58,10 +58,10 @@ export default function CorrectionListPage() {
           <thead className="bg-gray-50 border-b">
             <tr>
               <th className="py-3 px-4">状態</th>
-              <th className="py-3 px-4">社員名</th>
-              <th className="py-3 px-4">申請日</th>
-              <th className="py-3 px-4">修正対象日</th>
-              <th className="py-3 px-4">申請内容</th>
+              <th className="py-3 px-4">名前</th>
+              <th className="py-3 px-4">申請日時</th>
+              <th className="py-3 px-4">対象日時</th>
+              <th className="py-3 px-4">申請理由</th>
               <th className="py-3 px-4 text-center">詳細</th>
             </tr>
           </thead>
