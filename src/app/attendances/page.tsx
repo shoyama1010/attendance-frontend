@@ -66,13 +66,7 @@ export default function AttendanceListPage() {
                         )}`
                       : "-"}
                   </td>
-                  {/* <td className='px-6 py-3 border'>
-                    {r.rest_start && r.rest_end
-                      ? `${formatTime(r.rest_start)} ～ ${formatTime(
-                          r.rest_end
-                        )}`
-                      : "-"}
-                  </td> */}
+                  
                   <td className='py-3 px-4 border text-blue-600 underline text-center'>
                     <Link href={`/attendances/${r.id}`}>詳細</Link>
                   </td>

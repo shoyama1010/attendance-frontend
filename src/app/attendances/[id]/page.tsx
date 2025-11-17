@@ -24,7 +24,7 @@ export default function AttendanceDetailPage() {
   const [record, setRecord] = useState<Attendance | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // フォームの state
+  // Form state
   const [clockIn, setClockIn] = useState("");
   const [clockOut, setClockOut] = useState("");
   const [restStart, setRestStart] = useState("");
@@ -40,7 +40,7 @@ export default function AttendanceDetailPage() {
 
         setClockIn(formatTimeForInput(data.clock_in_time));
         setClockOut(formatTimeForInput(data.clock_out_time));
-        
+
         setRestStart(formatTimeForInput(data.rest_start));
         setRestEnd(formatTimeForInput(data.rest_end));
         setNote(data.note ?? "");
@@ -50,6 +50,14 @@ export default function AttendanceDetailPage() {
 
   // 保存処理
   const handleUpdate = async () => {
+    console.log("送信データ:", {
+      clock_in_time: clockIn,
+      clock_out_time: clockOut,
+      rest_start: restStart,
+      rest_end: restEnd,
+      note: note,
+    });
+
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/attendances/${id}`,
       {
@@ -65,6 +73,10 @@ export default function AttendanceDetailPage() {
       }
     );
 
+    console.log("ステータス:", res.status);
+    const text = await res.text();
+    console.log("レスポンス:", text);
+
     if (res.ok) {
       alert("変更を保存しました");
       router.push("/attendances");
@@ -73,6 +85,7 @@ export default function AttendanceDetailPage() {
     }
   };
 
+  // 読み込み中
   if (loading || !record) {
     return (
       <Layout>
@@ -87,7 +100,6 @@ export default function AttendanceDetailPage() {
 
       <div className="flex justify-center">
         <div className="w-[700px] bg-white shadow-md rounded-lg border p-6">
-
           {/* 名前・日付 */}
           <table className="w-full border mb-6 text-sm">
             <tbody>
@@ -104,7 +116,6 @@ export default function AttendanceDetailPage() {
 
           {/* 編集フォーム */}
           <div className="space-y-6">
-
             {/* 出勤・退勤 */}
             <div>
               <label className="font-semibold block mb-2">出勤・退勤</label>
@@ -147,7 +158,9 @@ export default function AttendanceDetailPage() {
 
             {/* 備考 */}
             <div>
-              <label className="font-semibold block mb-2">備考（修正理由など）</label>
+              <label className="font-semibold block mb-2">
+                備考（修正理由など）
+              </label>
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
@@ -172,9 +185,10 @@ export default function AttendanceDetailPage() {
               一覧に戻る
             </button>
           </div>
-
         </div>
       </div>
     </Layout>
   );
 }
+
+

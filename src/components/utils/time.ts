@@ -38,17 +38,6 @@ export function formatTime(time: string | null) {
   });
 }
 
-// // 09:15:00 → 09:15
-// export function formatTimeForInput(time: string | null) {
-//   if (!time) return "";
-
-//   const date = new Date(time); // ISO文字列を Date に変換
-//   const h = String(date.getHours()).padStart(2, "0");
-//   const m = String(date.getMinutes()).padStart(2, "0");
-//    return `${h}:${m}`;
-//   // return time.substring(0, 5);
-// }
-
 export function formatTimeForInput(time: string | null) {
   if (!time) return "";
 
