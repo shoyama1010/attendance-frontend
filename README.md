@@ -61,9 +61,9 @@ http://localhost/3000/attendance
 
 ## 1. リポジトリをクローン
 
-git clone https://github.com/shoyama1010/fruit-furima-frontend.git
+git clone https://github.com/shoyama1010/attendance-frontend.git
 
-cd fruit-furima-frontend
+cd attendance-frontend
 
 ## 2.　パッケージをインストール
 
