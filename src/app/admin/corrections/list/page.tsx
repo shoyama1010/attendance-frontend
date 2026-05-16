@@ -1,97 +1,118 @@
+// src/app/admin/corrections/list/page.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+
+type CorrectionStatus = "pending" | "approved";
 
 type CorrectionRequest = {
   id: number;
   user_name: string;
   target_date: string;
-  status: string;
+  status: CorrectionStatus;
 };
 
 export default function AdminCorrectionListPage() {
   const [list, setList] = useState<CorrectionRequest[]>([]);
   const [loading, setLoading] = useState(true);
-  const [status, setStatus] = useState<"pending" | "approved">("pending");
+  const [status, setStatus] = useState<CorrectionStatus>("pending");
 
   useEffect(() => {
-    // ✅ 環境変数を使用して、API URLを一元管理
-    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/correction-requests?status=${status}`;
+    const fetchList = async () => {
+      try {
+        setLoading(true);
 
-    console.log("🔗 Fetching:", apiUrl); // デバッグ確認用
+        const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/correction-requests?status=${status}`;
 
-    fetch(apiUrl, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-      credentials: "include",
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
-        return res.json();
-      })
-      .then((data) => setList(data))
-      .catch((err) => console.error("API Error:", err))
-      .finally(() => setLoading(false));
+        const res = await fetch(apiUrl, {
+          method: "GET",
+          headers: { Accept: "application/json" },
+          credentials: "include",
+        });
 
-  }, [status]); 
+        if (!res.ok) {
+          throw new Error(`HTTP Error: ${res.status}`);
+        }
 
-  if (loading) return <div>読み込み中...</div>;
+        const data: CorrectionRequest[] = await res.json();
+        console.log("Admin  list data", data);
+        setList(data);
+      } catch (err) {
+        console.error("API Error:", err);
+        setList([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchList();
+  }, [status]);
+
+  if (loading) {
+    return <div>読み込み中...</div>;
+  }
 
   return (
-    <div className='max-w-4xl mx-auto'>
-      <h1 className='text-2xl font-bold mb-6'>申請一覧（管理者）</h1>
+    <div className="mx-auto max-w-4xl">
+      <h1 className="mb-6 text-2xl font-bold">申請一覧（管理者）</h1>
 
-      {/* ▼ タブ切り替え */}
-      <div className='flex gap-4 mb-6'>
+      <div className="mb-6 flex gap-4">
         <button
           onClick={() => setStatus("pending")}
-          className={`px-4 py-2 rounded ${
-            status === "pending"
+          className={`rounded px-4 py-2 ${status === "pending"
               ? "bg-blue-600 text-white"
               : "bg-gray-200 text-gray-700"
-          }`}
+            }`}
         >
           承認待ち
         </button>
         <button
           onClick={() => setStatus("approved")}
-          className={`px-4 py-2 rounded ${
-            status === "approved"
+          className={`rounded px-4 py-2 ${status === "approved"
               ? "bg-green-600 text-white"
               : "bg-gray-200 text-gray-700"
-          }`}
+            }`}
         >
           承認済み
         </button>
       </div>
 
-      {/* ▼ テーブル */}
-      <table className='w-full border border-gray-300 bg-white'>
-        <thead className='bg-gray-100'>
+      <table className="w-full border border-gray-300 bg-white">
+        <thead className="bg-gray-100">
           <tr>
-            <th className='p-3 border'>氏名</th>
-            <th className='p-3 border'>対象日</th>
-            <th className='p-3 border'>状態</th>
-            <th className='p-3 border'>詳細</th>
+            <th className="border p-3">氏名</th>
+            <th className="border p-3">対象日</th>
+            <th className="border p-3">状態</th>
+            <th className="border p-3">詳細</th>
           </tr>
         </thead>
         <tbody>
-          {list.map((item: CorrectionRequest) => (
-            <tr key={item.id} className='border-b'>
-              <td className='p-3 border'>{item.user_name}</td>
-              <td className='p-3 border'>{item.target_date}</td>
-              <td className='p-3 border'>{item.status}</td>
-              <td className='p-3 border text-center'>
-                <Link
-                  href={`/admin/corrections/${item.id}`}
-                  className='px-3 py-1 bg-black text-white text-sm rounded'
-                >
-                  詳細
-                </Link>
+          {list.length > 0 ? (
+            list.map((item) => (
+              <tr key={item.id} className="border-b">
+                <td className="border p-3">{item.user_name}</td>
+                <td className="border p-3">{item.target_date}</td>
+                <td className="border p-3">
+                  {item.status === "pending" ? "承認待ち" : "承認済み"}
+                </td>
+                <td className="border p-3 text-center">
+                  <Link
+                    href={`/admin/corrections/${item.id}`}
+                    className="rounded bg-black px-3 py-1 text-sm text-white"
+                  >
+                    詳細
+                  </Link>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={4} className="p-6 text-center text-gray-500">
+                データがありません。
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
