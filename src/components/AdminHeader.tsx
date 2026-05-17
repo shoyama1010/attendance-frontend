@@ -18,7 +18,7 @@ export default function AdminHeader() {
       <h1 className='text-lg font-bold tracking-widest'>COACHTECH</h1>
 
       <nav className='flex gap-6 text-sm'>
-        <Link href='/admin/attendances' className='hover:text-gray-300'>
+        <Link href='/admin/attendance/list' className='hover:text-gray-300'>
           勤怠一覧（管理）
         </Link>
 
@@ -26,7 +26,7 @@ export default function AdminHeader() {
           申請一覧
         </Link>
 
-        <Link href='/admin/staffs' className='hover:text-gray-300'>
+        <Link href='/admin/staff/list' className='hover:text-gray-300'>
           スタッフ管理
         </Link>
         

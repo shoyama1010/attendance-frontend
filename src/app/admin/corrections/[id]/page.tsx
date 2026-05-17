@@ -168,6 +168,7 @@ export default function AdminCorrectionDetailPage() {
 
   const [detail, setDetail] = useState<AdminCorrectionDetailView | null>(null);
   const [loading, setLoading] = useState(true);
+
   const [approving, setApproving] = useState(false);
   const [approved, setApproved] = useState(false);
 
@@ -207,13 +208,14 @@ export default function AdminCorrectionDetailPage() {
         setLoading(false);
       }
     };
-
     fetchDetail();
   }, [id]);
 
   const hasRests = useMemo(() => {
     return (detail?.rests ?? []).length > 0;
   }, [detail]);
+
+  const isApproved = detail?.status === "approved" || approved; // 追加
 
   const handleApprove = async () => {
     if (!id) return;
@@ -322,7 +324,7 @@ export default function AdminCorrectionDetailPage() {
       )}
 
       <div className="mt-10 text-right">
-        {approved ? (
+        {isApproved ? (
           <button
             onClick={() => router.push("/admin/corrections/list")}
             className="rounded bg-gray-500 px-6 py-2 text-white hover:bg-gray-600"
@@ -339,6 +341,24 @@ export default function AdminCorrectionDetailPage() {
           </button>
         )}
       </div>
+      {/* <div className="mt-10 text-right">
+        {approved ? (
+          <button
+            onClick={() => router.push("/admin/corrections/list")}
+            className="rounded bg-gray-500 px-6 py-2 text-white hover:bg-gray-600"
+          >
+            戻る
+          </button>
+        ) : (
+          <button
+            onClick={handleApprove}
+            disabled={approving}
+            className="rounded bg-black px-6 py-2 text-white hover:bg-gray-800 disabled:opacity-50"
+          >
+            {approving ? "承認中..." : "承認する"}
+          </button>
+        )}
+      </div> */}
     </div>
   );
 }
