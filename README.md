@@ -40,6 +40,11 @@ http://localhost/3000/attendance
 ユーザー側・勤怠一覧機能
 <img width="1335" height="660" alt="Image" src="https://github.com/user-attachments/assets/39e3bd19-a94a-44fb-af6a-a493ddcf8df9" />
 
+スタッフ一覧・スタッフ勤怠
+<img width="1354" height="659" alt="Image" src="https://github.com/user-attachments/assets/a61b725e-10ef-4848-93ba-69390f0dfbd0" />
+<img width="1343" height="666" alt="Image" src="https://github.com/user-attachments/assets/b301d2da-f535-4779-a61a-9ce191e5bce5" />
+<img width="1350" height="671" alt="Image" src="https://github.com/user-attachments/assets/25ea6b8d-d1a9-4cd5-ba89-a437175a2b92" />
+
 # 使用技術
 ・Next.js 14
 
