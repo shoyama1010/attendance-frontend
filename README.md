@@ -48,7 +48,7 @@ http://localhost/3000/attendance
 # 使用技術
 ・Next.js 14
 
-・React.js 19.2　＊レンダリング技術（CSR）
+・React.js 
 
 ・Node.js
 
