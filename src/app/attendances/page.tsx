@@ -102,6 +102,7 @@ export default function AttendanceListPage() {
                     <td className='py-3 px-4 border-r text-center font-medium text-gray-800'>
                       {formatDate(r.date)}
                     </td>
+
                     <td className='py-3 px-4 border-r text-center'>
                       <Link
                         href={`/attendances/user/${r.user_id}`} // ← user_id を使用
@@ -110,18 +111,23 @@ export default function AttendanceListPage() {
                         {r.user_name}
                       </Link>
                     </td>
-                    
+                    {/* 出勤 */}
                     <td className='py-3 px-4 border-r text-center'>   
                       {formatTime(r.clock_in_time)}
                     </td>
+                    {/* 退勤 */}
                     <td className='py-3 px-4 border-r text-center'>
                       {formatTime(r.clock_out_time)}
                     </td>
-                    <td className='py-3 px-4 border-r text-center text-gray-700'>
-                      {r.rest_start && r.rest_end
+                    {/* 休憩 */}
+                    <td className='py-3 px-4 border-r text-center '>
+                      {/* {r.rest_start && r.rest_end
                         ? `${(r.rest_start)} ～ ${(
                           r.rest_end
                         )}`
+                        : "―"} */}
+                      {r.rest_start && r.rest_end
+                        ? `${formatTime(r.rest_start)} ～ ${formatTime(r.rest_end)}`
                         : "―"}
                     </td>
                     <td className='py-3 px-4 text-center'>
