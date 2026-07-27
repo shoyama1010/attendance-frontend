@@ -48,19 +48,10 @@ http://localhost/3000/attendance
 # 使用技術
 ・Next.js 14
 
-・React.js 
-
 ・Node.js
 
-・TypeScript（型定義は最小限）
+・TypeScript
 
-・Webpack（Next.js 内部で使用）
-
-・Babel（Next.js 内部で使用）
-
-・html
-
-・css(Tailwind CSS)
 
 # 環境構築
 
@@ -84,7 +75,7 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost/api
 
 ## 4. 開発サーバーを起動
 
-yarn dev
+yarn dev（または npm run dev）
 
 ## 5. ビルド（本番用）
 
