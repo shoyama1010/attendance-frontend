@@ -1,8 +1,8 @@
-// src/app/admin/staff/list/page.tsx
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 type Staff = {
@@ -17,7 +17,9 @@ type StaffListResponse = {
   last_page: number;
 };
 
-export default function AdminStaffListPage() {
+// export default function AdminStaffListPage() {
+function AdminStaffListContent() {
+
   const searchParams = useSearchParams();
   const page = Number(searchParams.get("page") ?? "1");
 
@@ -157,4 +159,10 @@ export default function AdminStaffListPage() {
   );
 }
 
-
+export default function AdminStaffListPage() {
+  return (
+    <Suspense fallback={<div>読み込み中...</div>}>
+      <AdminStaffListContent />
+    </Suspense>
+  );
+}
