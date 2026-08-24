@@ -1,10 +1,14 @@
 "use client";
 // import Link from "next/link";
-import { useEffect } from "react";
+import { ReactNode,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AdminHeader from "@/components/AdminHeader";
 
-export default function AdminLayout({ children }) {
+type AdminLayoutProps = {
+  children: ReactNode;
+};
+
+export default function AdminLayout({ children }: AdminLayoutProps) {
   const router = useRouter();
 
   useEffect(() => {

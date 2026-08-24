@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import {ReactNode,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 
-export default function UserLayout({ children }) {
+type UserLayoutProps = {
+  children: ReactNode;
+};
+
+export default function UserLayout({ children }: UserLayoutProps) {
   const router = useRouter();
 
   useEffect(() => {
