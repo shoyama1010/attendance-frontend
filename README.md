@@ -21,7 +21,7 @@ http://localhost/3000/attendance
 
 ④Next.js 側の API リクエスト時に、その Cookie が自動的に送信される⇒Laravel は「ログイン済みユーザー」として認証。
 
-・マルチログイン（仮）
+・マルチログイン（開発中）
 <img width="1204" height="666" alt="Image" src="https://github.com/user-attachments/assets/6eb85adb-bf37-43a2-ad47-7feb0c7471da" />
 
 ・全ユーザー取得機能
@@ -52,6 +52,7 @@ http://localhost/3000/attendance
 
 ・TypeScript
 
+・Vercel
 
 # 環境構築
 
@@ -83,8 +84,9 @@ yarn run build
 
 npm run start
 
+公開デモ（Vercelで開発中）
 
-
+https://attendance-frontend-seven-zeta.vercel.app/login
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
