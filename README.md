@@ -25,25 +25,25 @@ http://localhost/3000/attendance
 <img width="1204" height="666" alt="Image" src="https://github.com/user-attachments/assets/6eb85adb-bf37-43a2-ad47-7feb0c7471da" />
 
 ・全ユーザー取得機能
-- http://localhost/3000/attendance は、個人別ではなく、「全ユーザー取得機能」として、フロントエンド用にページ作成しました。
-<img width="1352" height="679" alt="Image" src="https://github.com/user-attachments/assets/bddf26e2-0949-4511-83af-cf170cf686c2" />
+- 個人別ではなく、「全ユーザー取得機能」として、フロントエンド用にページ作成しました。
+<img width="1337" height="665" alt="スクリーンショット (7301)" src="https://github.com/user-attachments/assets/946ade52-b905-4a4f-a9a6-b01790497fd1" />
 
 ・ユーザー側・ＣＲＵＤ機能（勤怠情報取得、月情報取得、詳細遷移）
-<img width="1366" height="683" alt="Image" src="https://github.com/user-attachments/assets/aac35554-3815-443d-9011-3b0acce3fdfc" />
+<img width="1351" height="669" alt="スクリーンショット (7302)" src="https://github.com/user-attachments/assets/823d8ae9-7428-4940-b3b1-94fc2a29e7f6" />
 
-・ユーザー側・勤怠詳細⇒修正申請機能（承認待ち＝承認済情報取得、申請詳細表示）
-<img width="1359" height="675" alt="Image" src="https://github.com/user-attachments/assets/52c9a38c-6621-4ee0-9348-c52b55a3dffe" />
+・ユーザー側・勤怠詳細⇒修正申請機能（承認済＝承認済情報取得、申請詳細表示）
+<img width="1353" height="679" alt="スクリーンショット (7303)" src="https://github.com/user-attachments/assets/57b1c4fd-5eed-4a60-98f4-40d492555042" />
 
-管理側・申請一覧⇒修正申請機能　http://localhost:3000/admin/corrections/list　
-<img width="1355" height="671" alt="Image" src="https://github.com/user-attachments/assets/fa207cad-ae2b-4715-98c0-7f84b6055bcc" />
+管理側・申請一覧⇒修正申請機能
+<img width="1355" height="677" alt="スクリーンショット (7304)" src="https://github.com/user-attachments/assets/18694489-266c-4b80-bdf5-21ed2c5e4498" />
 
 ユーザー側・勤怠一覧機能
-<img width="1335" height="660" alt="Image" src="https://github.com/user-attachments/assets/39e3bd19-a94a-44fb-af6a-a493ddcf8df9" />
+<img width="1355" height="679" alt="スクリーンショット (7305)" src="https://github.com/user-attachments/assets/6717afde-1936-443e-833a-6d89986a3f42" />
 
 スタッフ一覧・スタッフ勤怠
-<img width="1354" height="659" alt="Image" src="https://github.com/user-attachments/assets/a61b725e-10ef-4848-93ba-69390f0dfbd0" />
-<img width="1343" height="666" alt="Image" src="https://github.com/user-attachments/assets/b301d2da-f535-4779-a61a-9ce191e5bce5" />
-<img width="1350" height="671" alt="Image" src="https://github.com/user-attachments/assets/25ea6b8d-d1a9-4cd5-ba89-a437175a2b92" />
+<img width="1351" height="673" alt="スクリーンショット (7306)" src="https://github.com/user-attachments/assets/db252584-26d8-407c-a0b4-2e06863d82e4" />
+<img width="1349" height="681" alt="スクリーンショット (7307)" src="https://github.com/user-attachments/assets/e696533a-85ff-4463-a7f1-beae4d195b29" />
+<img width="1351" height="675" alt="スクリーンショット (7308)" src="https://github.com/user-attachments/assets/bd19c859-9e75-4e77-b0fc-29cfde0dcd17" />
 
 # 使用技術
 ・Next.js 14
