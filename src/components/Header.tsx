@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header className='bg-black text-white px-8 py-3 flex justify-between items-center'>
-      <h1 className='text-lg font-bold tracking-widest'>COACHTECH</h1>
+      <h1 className='text-lg font-bold tracking-widest'>WorkFlow</h1>
 
       <nav className='flex gap-6 text-sm'>
         <Link href='/attendances' className='hover:text-gray-300'>
