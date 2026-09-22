@@ -1,4 +1,4 @@
-# attendance-frontend（勤怠管理：フロントエンド）
+# WorkFlow（一部SPA化：Next.js+LaravelAPI）
 
 # 作成した目的
 既存のLaravelによる勤怠管理アプリをベースに、バックエンドをLaravel API、フロントエンドをNext.jsに分離し、API連携によるSPA構成を実装してみました。
